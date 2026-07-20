@@ -5,6 +5,10 @@ export const bindButtonClicks = (
   incrementBtn: Element,
   decrementBtn: Element,
 ) => {
-  fromEvent(incrementBtn, "click").subscribe(() => incrementClicked$.next());
-  fromEvent(decrementBtn, "click").subscribe(() => decrementClicked$.next());
+  fromEvent(incrementBtn, "click").subscribe(() =>
+    incrementClicked$.next({ value: 1, name: "incrementClicked$" }),
+  );
+  fromEvent(decrementBtn, "click").subscribe(() =>
+    decrementClicked$.next({ value: -1, name: "decrementClicked$" }),
+  );
 };
